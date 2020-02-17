@@ -1,0 +1,14 @@
+<div class="container text-center">
+  <h1>New game</h1>
+
+  <% @letters.each do |letter| %>
+    <span class="btn btn-primary mx-1"><%= letter %></span>
+  <% end %>
+  <form action="/score" class="form-inline" method="post">
+    <input type="text" name="guess" placeholder="Enter your guess">
+    <input type="submit">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :letters, @letters %>
+  </form>
+
+</div>
