@@ -19,8 +19,10 @@ class GamesController < ApplicationController
       result[:score] = session_score(@guess.length)
     elsif valid_guess?(guess)
       result[:message] =  "Sorry but #{guess.upcase} can't be built out of #{letters}"
+      result[:score] += 0
     else
       result[:message] =  "Sorry but #{guess.upcase} does not seem to be a valid English word"
+      result[:score] += 0
     end
     return result
   end
